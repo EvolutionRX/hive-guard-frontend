@@ -6,81 +6,70 @@ import { MdDeliveryDining, MdOutlineExplore, MdOutlinePermContactCalendar } from
 import { BsTrophy, BsCreditCard2Front, BsQuestionCircle } from 'react-icons/bs'
 import { AiOutlinePieChart } from 'react-icons/ai'
 import { BiTrendingUp, BiLogOutCircle } from 'react-icons/bi'
+import {BrowserRouter,Link} from 'react-router-dom';
+
+const toPage = page => () =>{
+  setPage(page)
+}
 
 const Sidebar = () => {
   return (
+    
     <div className='sideBar grid'>
 
       <div className="logoDiv flex">
         <img src={logo} alt="Logo" />
-        <h2>Planti.</h2>
+        <h2>Hive Guard.</h2>
       </div>
 
-      <div className="menuDiv">
+      { <div className="menuDiv">
         <h3 className="divTitle">
-          QUICK MENU
+          Menu principal
         </h3>
         <ul className="menuLists grid">
 
           <li className="listItem">
-            <a href="#" className="menuLink flex">
+            <Link to="/dashboard" onClick={toPage('dashboard')} className="menuLink flex">
               <IoMdSpeedometer className="icon" />
               <span className="smallText">
-                Dashboard
+                Inicio
               </span>
-            </a>
-          </li>
-
-          <li className="listItem">
-            <a href="#" className="menuLink flex">
-              <MdDeliveryDining className="icon" />
-              <span className="smallText">
-                My Orders
-              </span>
-            </a>
+            </Link>
           </li>
 
           <li className="listItem">
             <a href="#" className="menuLink flex">
               <MdOutlineExplore className="icon" />
               <span className="smallText">
-                Explore
+                Explorar
               </span>
             </a>
           </li>
 
-          <li className="listItem">
-            <a href="#" className="menuLink flex">
-              <BsTrophy className="icon" />
-              <span className="smallText">
-                Products
-              </span>
-            </a>
-          </li>
         </ul>
-      </div>
+      </div> }
 
 
       <div className="settingsDiv">
         <h3 className="divTitle">
-          SETTINGS
+          Configuración
         </h3>
         <ul className="menuLists grid">
 
           <li className="listItem">
-            <a href="#" className="menuLink flex">
+            <Link to="/graficos" onClick={toPage('graficos')} className="menuLink flex">
               <AiOutlinePieChart className="icon" />
               <span className="smallText">
-                Charts
+                Gráficos
               </span>
-            </a>
+            </Link>
           </li>
 
           <li className="listItem">
             <a href="#" className="menuLink flex">
               <BiTrendingUp className="icon" />
               <span className="smallText">
-                Trends
+                Sensores
               </span>
             </a>
           </li>
@@ -89,25 +78,18 @@ const Sidebar = () => {
             <a href="#" className="menuLink flex">
               <MdOutlinePermContactCalendar className="icon" />
               <span className="smallText">
-                Contact
+                Contacto
               </span>
             </a>
           </li>
 
-          <li className="listItem">
-            <a href="#" className="menuLink flex">
-              <BsCreditCard2Front className="icon" />
-              <span className="smallText">
-                Billing
-              </span>
-            </a>
-          </li>
+        
 
           <li className="listItem">
             <a href="/" className="menuLink flex">
               <BiLogOutCircle className="icon" />
               <span className="smallText">
-                Log Out
+                Cerrar sesión
               </span>
             </a>
           </li>
@@ -120,12 +102,13 @@ const Sidebar = () => {
           <div className="circle1"></div>
           <div className="circle2"></div>
 
-          <h3>Help Center</h3>
-          <p>Having trouble in Planti, please contact us from for more questions.</p>
-          <button className="btn">Go to help center</button>
+          <h3>Centro de ayuda</h3>
+          <p>Si tienes algún problema en página, por favor contactese con nosotros.</p>
+          <button className="btn">Ir al Centro de ayuda.</button>
         </div>
       </div>
     </div>
+   
   )
 }
 

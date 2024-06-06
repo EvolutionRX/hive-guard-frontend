@@ -1,16 +1,16 @@
 /* Colors adn Styles (Default) */
 :root {
-  --PrimaryColor: hsl(94, 59%, 35%);
-  --HoverColor: #bdf094;
-  --paleGreen: hsl(96, 75%, 89%);
-  --whiteColor: hsl(0, 0%, 100%);
-  --blackColor: hsl(0, 0%, 18%);
-  --textColor: hsl(240, 1%, 48%);
-  --bgColor: hsl(220, 10%, 94%);
-  --greyText: rgb(190, 190, 190);
-  --inputColor: hsl(330, 12%, 97%);
-  --itemCardColor: hsl(120, 5%, 88%);
-  --itemCardHover: hsl(120, 27%, 87%);
+  --PrimaryColor: #707070;
+    --HoverColor: #ffdd00;
+    --paleGreen: #ffdd00;
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(0, 0%, 18%);
+    --textColor: hsl(240, 1%, 48%);
+    --bgColor: hsl(220, 10%, 94%);
+    --greyText: rgb(190, 190, 190);
+    --inputColor: hsl(330, 12%, 97%);
+    --itemCardColor: hsl(120, 5%, 88%);
+    --itemCardHover: hsl(120, 27%, 87%);
   /* Font ang Typography */
   --biggestFontSize: 2.5rem;
   --h1FontSize: 1.5rem;

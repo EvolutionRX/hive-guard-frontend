@@ -4,8 +4,7 @@ import { BiSearchAlt } from 'react-icons/bi'
 import { TbMessageCircle } from 'react-icons/tb'
 import { MdOutlineNotificationsNone } from 'react-icons/md'
 import { BsArrowRightShort, BsQuestionCircle } from 'react-icons/bs'
-import img from '../../../../Assets/gilbert.jpg'
-import img2 from '../../../../Assets/images (2).png'
+import img2 from '../../../../Assets/bee-temporal.png'
 import video from '../../../../Assets/video.mp4'
 
 const Top = () => {
@@ -13,33 +12,28 @@ const Top = () => {
     <div className="topSection">
       <div className="headerSection flex">
         <div className="title">
-          <h1>Welcome to Planti.</h1>
-          <p>Hello Gilbert, Welcome back!</p>
+          <h1>Bienvenido a Hive Guard.</h1>
+          <p>Hola Jorge, un gusto verte otra vez!</p>
         </div>
 
-        <div className="searchBar flex">
-          <input type="text" placeholder='Search Dashboard' />
-          <BiSearchAlt className="icon" />
-        </div>
+        
 
         <div className="adminDiv flex">
-          <TbMessageCircle className="icon" />
+          
           <MdOutlineNotificationsNone className="icon" />
-          <div className="adminImage">
-            <img src={img} alt="Admin Image" />
-          </div>
+          
         </div>
 
       </div>
 
       <div className="cardSection flex">
         <div className="rightCard flex">
-          <h1>Create and sell extraordinary products</h1>
-          <p>The world's fast growing industry today are natural made products!</p>
+          <h1>Control de colmenas</h1>
+        <p>Gestiona la información de tus abejas, temperatura, humedad y conteo.</p>
 
           <div className="buttons flex">
-            <button className="btn">Explore More</button>
-            <button className="btn transparent">Top Sellers</button>
+            <button className="btn">Hacer algo</button>
+            
           </div>
 
           <div className="videoDiv">
@@ -51,19 +45,19 @@ const Top = () => {
           <div className="main flex">
 
             <div className="textDiv">
-              <h1>My Stat</h1>
+              <h1>Abejas detectadas</h1>
 
               <div className="flex">
                 <span>
-                  Today <br /> <small>4 Orders</small>
+                  Hoy <br /> <small>4 abejas</small>
                 </span>
                 <span>
-                  This Month <br /> <small>175 Orders</small>
+                  Este mes <br /> <small>175 abejas</small>
                 </span>
               </div>
 
               <span className="flex link">
-                Go to my orders <BsArrowRightShort className="icon" />
+                Ir a mis estadisticas <BsArrowRightShort className="icon" />
               </span>
             </div>
 
@@ -77,9 +71,9 @@ const Top = () => {
                 <div className="circle1"></div>
                 <div className="circle2"></div>
 
-                <h3>Help Center</h3>
-                <p>Having trouble in Planti, please contact us from for more questions.</p>
-                <button className="btn">Go to help center</button>
+                <h3>Centro de ayuda</h3>
+                <p>Si tiene algún problema con Hive Guard, por favor contactese con nosotros para resolver sus preguntas.</p>
+                <button className="btn">Ir al centro de ayuda</button>
               </div>
             </div>
 

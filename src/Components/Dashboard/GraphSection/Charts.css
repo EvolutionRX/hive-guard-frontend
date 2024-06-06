@@ -1,0 +1,45 @@
+.chart-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .date-range-picker {
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para hacer que el gráfico sea responsive */
+  .chart-container {
+    max-width: 100%;
+    overflow-x: auto; /* Añadir scroll horizontal si el gráfico es más ancho que el contenedor */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .chart-container {
+      padding: 10px;
+      overflow-x: auto;
+    }
+  }
+
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-buttons button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-buttons button:hover {
+    background-color: #0056b3;
+}
