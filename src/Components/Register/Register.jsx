@@ -20,7 +20,7 @@ const Register = () => {
 
     const createUser = (e) => {
         e.preventDefault()
-        Axios.post('http://localhost:3002/register', {
+        Axios.post(`${import.meta.env.VITE_API}/register`, {
             Email: email,
             UserName: userName,
             Password: password
