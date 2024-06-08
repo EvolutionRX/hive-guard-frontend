@@ -13,7 +13,7 @@ const Top = () => {
       <div className="headerSection flex">
         <div className="title">
           <h1>Bienvenido a Hive Guard.</h1>
-          <p>Hola Jorge, un gusto verte otra vez!</p>
+          <p>¡Hola, un gusto verte otra vez!</p>
         </div>
 
         
