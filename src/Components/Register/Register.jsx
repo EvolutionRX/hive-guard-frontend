@@ -40,14 +40,14 @@ const Register = () => {
                     <video src={video} autoPlay muted loop></video>
 
                     <div className="textDiv">
-                        <h2 className="title">Create And Sell Extraordinary Products</h2>
-                        <p>Adopt the peace of nature!</p>
+                    <h2 className="title">Prioriza la salud de tus abejas.</h2>
+                    <p>En Hive Guard, simplificamos la gestión de tus colmenas. Impulsa el rendimiento de tus abejas con nuestra tecnología.</p>
                     </div>
 
                     <div className="footerDiv flex">
-                        <span className="text">Have an account?</span>
+                        <span className="text">¿Tienes una cuenta?</span>
                         <Link to={'/'}>
-                            <button className="btn">Login</button>
+                            <button className="btn">Iniciar sesión</button>
                         </Link>
                     </div>
                 </div>
@@ -55,46 +55,44 @@ const Register = () => {
                 <div className="formDiv flex">
                     <div className="headerDiv">
                         <img src={logo} alt="Logo Image" />
-                        <h3>Let Us Know You!</h3>
+                        <h3>¡Bievenido!</h3>
                     </div>
 
                     <form action="" className="form grid">
 
                         <div className="inputDiv">
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email">Correo electrónico</label>
                             <div className="input flex">
                                 <MdMarkEmailRead className="icon" />
-                                <input type="email" id='email' placeholder='Enter Email'
+                                <input type="email" id='email' placeholder='Ingresar correo'
                                     onChange={(event) => setEmail(event.target.value)} />
                             </div>
                         </div>
 
                         <div className="inputDiv">
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="username">Usuario</label>
                             <div className="input flex">
                                 <FaUserShield className="icon" />
-                                <input type="text" id='username' placeholder='Enter Username'
+                                <input type="text" id='username' placeholder='Ingresar usuario'
                                     onChange={(event) => setUserName(event.target.value)} />
                             </div>
                         </div>
 
                         <div className="inputDiv">
-                            <label htmlFor="password">Password</label>
+                            <label htmlFor="password">Contraseña</label>
                             <div className="input flex">
                                 <BsFillShieldLockFill className="icon" />
-                                <input type="password" id='password' placeholder='Enter Password'
+                                <input type="password" id='password' placeholder='Ingresar contraseña'
                                     onChange={(event) => setPassword(event.target.value)} />
                             </div>
                         </div>
 
                         <button type='submit' className='btn flex' onClick={createUser}>
-                            <span>Register</span>
+                            <span>Registrar</span>
                             <AiOutlineSwapRight className="icon" />
                         </button>
 
-                        <span className="forgotPassword">
-                            Forgot your password? <a href="">Click Here</a>
-                        </span>
+        
 
                     </form>
                 </div>
