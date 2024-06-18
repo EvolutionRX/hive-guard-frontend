@@ -57,7 +57,7 @@ const RegisterConfig = () => {
       });
 
       // Enviar la configuración a la URL del servidor para su aplicación
-      await Axios.post(`http://${serverIP}:8000/api/config`, serverConfigData, {
+      await Axios.post(`https://${serverIP}:8000/api/config`, serverConfigData, {
         headers: {
           'Content-Type': 'application/json'
         }
