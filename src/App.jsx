@@ -3,6 +3,8 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import ChartsView from './Components/Dashboard/ChartsView'
+import ScreenServerView from './Components/Dashboard/ScreenServerView';
+import ScreenConfigView from './Components/Dashboard/ScreenConfigView';
 import './Components/Dashboard/BodySection/body.css'
 
 import {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
   {
     path: '/graficos',
     element:<div>  <ChartsView />  </div>
+  },
+  {
+    path: '/ingresarServidor',
+    element:<div>  <ScreenServerView />  </div>
+  },
+  {
+    path: '/config',
+    element:<div>  <ScreenConfigView />  </div>
   }
 ])
 
