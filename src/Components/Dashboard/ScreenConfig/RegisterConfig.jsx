@@ -50,26 +50,25 @@ const RegisterConfig = () => {
 
     try {
       // Crear la configuración en la base de datos del servidor
-      await Axios.post(`${import.meta.env.VITE_API}/api/setConfig`, configData, {
+      const response = await Axios.post(`${import.meta.env.VITE_API}/api/setConfig`, configData, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
-
+      console.log('response -- ', response.data);
       // Enviar la configuración a la URL del servidor para su aplicación
-      await Axios.post(`https://${serverIP}:8000/api/config`, serverConfigData, {
+      const configResponse = await Axios.post(`https://${serverIP}:8000/api/config`, serverConfigData, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
-
-      alert('Configuration saved and applied successfully!');
+      console.log('configResponse -- ', configResponse.data);
       navigate('/dashboard');
     } catch (error) {
-      setError('Error saving configuration. Please try again.');
+      setError('Ocurrió un error al guardar la configuración.');
     } finally {
       setLoading(false);
-    }
+    }  
   };
 
   return (
