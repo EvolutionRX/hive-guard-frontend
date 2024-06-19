@@ -3,13 +3,14 @@ import Axios from 'axios';
 import './activity.css';
 import { BsArrowRightShort } from 'react-icons/bs';
 import user from '../../../../Assets/logo.png';
+import { ClipLoader } from 'react-spinners';
 
 const Activity = () => {
   const [alerts, setAlerts] = useState([]);
   const serverIP = localStorage.getItem('serverIP');
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(true);
   
-
   useEffect(() => {
     const pollAlerts = async () => {
       try {
@@ -19,8 +20,10 @@ const Activity = () => {
         } else {
           setAlerts([]);
         }
+        setLoading(false);
       } catch (error) {
         console.error('Ocurrió un error al buscar las alertas:', error);
+        setLoading(false);
       }
     };
 
@@ -42,7 +45,12 @@ const Activity = () => {
       </div>
 
       <div className="secContainer grid">
-      {alerts.length > 0 && alerts.slice(0, 3).map((alert, index) => (
+      {loading ? (
+          <div className="loaderContainer">
+            <ClipLoader size={50} color="#007bff" />
+          </div>
+        ) : (
+      alerts.length > 0 && alerts.slice(0, 3).map((alert, index) => (
           <div key={index} className="singleCustomer flex">
             <img src={user} alt="Customer Image" />
             <div className="customerDetails">
@@ -57,7 +65,8 @@ const Activity = () => {
               Hace un momento
             </div>
           </div>
-        ))}
+        ))
+      )}
       </div>
 
       {showModal && (
