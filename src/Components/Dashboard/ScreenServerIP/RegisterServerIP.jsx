@@ -15,7 +15,7 @@ const RegisterServerIP = () => {
   const navigate = useNavigate();
 
   const validateIp = (ip) => {
-    const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+    const ipRegex = /^((https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?)$/;
     return ipRegex.test(ip);
   };
 
@@ -42,15 +42,15 @@ const RegisterServerIP = () => {
               navigate('/config'); // Redirigir a la pantalla de configuración si no existe
             }
           } else {
-            setError('Error al verificar la IP. Inténtalo de nuevo.');
+            setError('Error al verificar la URL. Inténtalo de nuevo.');
           }    
       } catch (error) {
-        setError('Error al verificar la IP. Inténtalo de nuevo.');
+        setError('Error al verificar la URL. Inténtalo de nuevo.');
       } finally {
         setLoading(false);
       }
     } else {
-      setError('Dirección IP inválida. Inténtalo de nuevo.');
+      setError('Dirección URL inválida. Inténtalo de nuevo.');
     }
   };
 
@@ -77,7 +77,7 @@ const RegisterServerIP = () => {
                 <input
                   type="text"
                   id="ipInput"
-                  placeholder="Ingresar IP de servidor"
+                  placeholder="Ingresar URL de servidor"
                   value={ip}
                   onChange={(e) => setIp(e.target.value)}
                 />
