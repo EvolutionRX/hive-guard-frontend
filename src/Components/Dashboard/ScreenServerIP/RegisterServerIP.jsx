@@ -25,7 +25,7 @@ const RegisterServerIP = () => {
       setLoading(true);
       setError('');
       try {
-          const response = await Axios.get(`${ip}:8000/api/healthcheck`);
+          const response = await Axios.get(`${ip}/api/healthcheck`);
           if (response.status === 200) {
             localStorage.setItem('serverIP', ip); // Guardar la IP del servidor en el almacenamiento local
 
