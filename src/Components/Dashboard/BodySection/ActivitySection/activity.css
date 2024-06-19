@@ -80,3 +80,8 @@
     width: 100%;
   }
 }/*# sourceMappingURL=activity.css.map */
+
+.alert {
+  background-color: red;
+  color: white;
+}
