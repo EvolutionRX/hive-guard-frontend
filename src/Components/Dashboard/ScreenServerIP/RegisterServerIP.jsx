@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../App.css';
 import Axios from 'axios';
@@ -19,33 +19,56 @@ const RegisterServerIP = () => {
     return ipRegex.test(ip);
   };
 
+  const fetchUserEmail = async (username) => {
+    const response = await Axios.get(`${import.meta.env.VITE_API}/api/users?username=${username}`);
+    return response.data.email;
+  };
+
+  const checkServerHealth = async (ip) => {
+    const response = await Axios.get(`${ip}/api/healthcheck`);
+    return response.status === 200;
+  };
+
+  const checkUserConfig = async (username) => {
+    try {
+      const response = await Axios.get(`${import.meta.env.VITE_API}/api/config?username=${username}`);
+      return response.status === 200 && response.data;
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        return false;
+      } else {
+        throw new Error('Error al verificar la configuración. Inténtalo de nuevo.');
+      }
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateIp(ip)) {
       setLoading(true);
       setError('');
       try {
-          const response = await Axios.get(`${ip}/api/healthcheck`);
-          if (response.status === 200) {
-            localStorage.setItem('serverIP', ip); // Guardar la IP del servidor en el almacenamiento local
+        const serverHealth = await checkServerHealth(ip);
+        if (!serverHealth) {
+          setError('Error al verificar la URL. Inténtalo de nuevo.');
+          return;
+        }
 
-            // Obtener el email del usuario
-            const username = localStorage.getItem('username');
-            const userResponse = await Axios.get(`${import.meta.env.VITE_API}/api/users?username=${username}`);
-            const userEmail = userResponse.data.email;
-            localStorage.setItem('email', userEmail);
+        localStorage.setItem('serverIP', ip); // Guardar la IP del servidor en el almacenamiento local
 
-            const configResponse = await Axios.get(`${import.meta.env.VITE_API}/api/config?username=${username}`);
-            if (configResponse.status === 200 && configResponse.data) {
-              navigate('/dashboard'); // Redirigir al dashboard si la configuración ya existe
-            } else {
-              navigate('/config'); // Redirigir a la pantalla de configuración si no existe
-            }
-          } else {
-            setError('Error al verificar la URL. Inténtalo de nuevo.');
-          }    
+        // Obtener el username desde el localStorage
+        const username = localStorage.getItem('username');
+        const email = await fetchUserEmail(username);
+        localStorage.setItem('email', email);
+
+        const configExists = await checkUserConfig(username);
+        if (configExists) {
+          navigate('/dashboard'); // Redirigir al dashboard si la configuración ya existe
+        } else {
+          navigate('/config'); // Redirigir a la pantalla de configuración si no existe
+        }
       } catch (error) {
-        setError('Error al verificar la URL. Inténtalo de nuevo.');
+        setError(error.message);
       } finally {
         setLoading(false);
       }
