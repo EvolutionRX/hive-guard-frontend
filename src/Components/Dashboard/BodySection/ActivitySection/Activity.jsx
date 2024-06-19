@@ -60,7 +60,7 @@ const Activity = () => {
         
 
         {alerts.length > 0 && alerts.map((alert, index) => (
-          <div key={index} className="singleCustomer flex alert">
+          <div key={index} className="singleCustomer flex">
             <img src={user} alt="Customer Image" />
             <div className="customerDetails">
               <span className="name">{alert.alertType === 'TEMP' ? 'Temperatura' : 'Humedad'}</span>
