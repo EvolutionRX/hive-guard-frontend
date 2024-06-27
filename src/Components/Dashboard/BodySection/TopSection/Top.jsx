@@ -31,10 +31,7 @@ const Top = () => {
           <h1>Control de colmenas</h1>
         <p>Gestiona la información de tus abejas, temperatura, humedad y conteo.</p>
 
-          <div className="buttons flex">
-            <button className="btn">Hacer algo</button>
-            
-          </div>
+         
 
           <div className="videoDiv">
             <video src={video} autoPlay loop muted></video>
@@ -57,7 +54,7 @@ const Top = () => {
               </div>
 
               <span className="flex link">
-                Ir a mis estadisticas <BsArrowRightShort className="icon" />
+                Ir a registro de abejas <BsArrowRightShort className="icon" />
               </span>
             </div>
 

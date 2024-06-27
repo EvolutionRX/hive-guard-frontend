@@ -1,12 +1,11 @@
 import React from 'react'
 import './sidebar.css'
 import logo from '../../../Assets/logo.png'
-import { IoMdSpeedometer } from 'react-icons/io'
-import { MdDeliveryDining, MdOutlineExplore, MdOutlinePermContactCalendar } from 'react-icons/md'
-import { BsTrophy, BsCreditCard2Front, BsQuestionCircle } from 'react-icons/bs'
+import { MdOutlineExplore } from 'react-icons/md'
+import { BsQuestionCircle } from 'react-icons/bs'
 import { AiOutlinePieChart } from 'react-icons/ai'
-import { BiTrendingUp, BiLogOutCircle } from 'react-icons/bi'
-import {BrowserRouter,Link} from 'react-router-dom';
+import { BiTrendingUp, BiLogOutCircle, BiLineChart  } from 'react-icons/bi'
+import {Link} from 'react-router-dom';
 
 const toPage = page => () =>{
   setPage(page)
@@ -30,21 +29,14 @@ const Sidebar = () => {
 
           <li className="listItem">
             <Link to="/dashboard" onClick={toPage('dashboard')} className="menuLink flex">
-              <IoMdSpeedometer className="icon" />
+              <MdOutlineExplore className="icon" />
               <span className="smallText">
                 Inicio
               </span>
             </Link>
           </li>
 
-          <li className="listItem">
-            <a href="#" className="menuLink flex">
-              <MdOutlineExplore className="icon" />
-              <span className="smallText">
-                Explorar
-              </span>
-            </a>
-          </li>
+          
 
         </ul>
       </div> }
@@ -58,29 +50,29 @@ const Sidebar = () => {
 
           <li className="listItem">
             <Link to="/graficos" onClick={toPage('graficos')} className="menuLink flex">
-              <AiOutlinePieChart className="icon" />
+              <BiTrendingUp className="icon" />
               <span className="smallText">
-                Gráficos
+                Sensores
               </span>
             </Link>
           </li>
 
           <li className="listItem">
             <a href="#" className="menuLink flex">
-              <BiTrendingUp className="icon" />
+              <BiLineChart className="icon" />
               <span className="smallText">
-                Sensores
+                Registro de abejas
               </span>
             </a>
           </li>
 
           <li className="listItem">
-            <a href="#" className="menuLink flex">
-              <MdOutlinePermContactCalendar className="icon" />
+          <Link to="/detecciones" onClick={toPage('detecciones')} className="menuLink flex">
+              <AiOutlinePieChart className="icon" />
               <span className="smallText">
-                Contacto
+                Detecciones
               </span>
-            </a>
+            </Link>
           </li>
 
         

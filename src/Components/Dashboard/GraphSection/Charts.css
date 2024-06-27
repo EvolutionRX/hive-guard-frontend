@@ -29,7 +29,10 @@
     justify-content: center;
     margin-bottom: 20px;
 }
-
+.selected-filter {
+  background-color: green;
+  color: white;
+}
 .filter-buttons button {
     margin: 0 5px;
     padding: 10px 20px;
@@ -42,4 +45,37 @@
 
 .filter-buttons button:hover {
     background-color: #0056b3;
+}
+
+.date-range-and-summary-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.summary-card {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-left: 20px; /* Space between date picker and summary card */
+}
+
+.chart-wrapper {
+  flex: 2;
+  width: 100%;
+}
+
+.summary-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.summary-card p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
 }

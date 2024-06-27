@@ -115,8 +115,8 @@
   font-weight: 800;
 }
 .topSection .cardSection .rightCard p {
-  padding: 1rem;
-  color: var(--paleGreen);
+
+  color: white;
   font-weight: 500;
 }
 .topSection .cardSection .rightCard .buttons {

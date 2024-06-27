@@ -7,13 +7,14 @@
 }
 
 :root {
-  --primaryColor: hsl(94, 55%, 56%);
-  --hoverColor: hsl(93, 75%, 76%);
-  --paleGreen: hsl(96, 75%, 89%);
+  --PrimaryColor: #ffdd00;
+  --HoverColor: #ffdd00;
+  --paleGreen: #ffdd00;
   --whiteColor: hsl(0, 0%, 100%);
   --blackColor: hsl(0, 0%, 18%);
-  --greyText: hsl(0, 0%, 75%);
-  --bgColor: hsl(113, 11%, 85%);
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: rgb(190, 190, 190);
   --inputColor: hsl(330, 12%, 97%);
   /* Font ang Typography */
   --biggestFontSize: 2.5rem;

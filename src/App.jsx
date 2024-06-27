@@ -3,6 +3,7 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import ChartsView from './Components/Dashboard/ChartsView'
+import SensorDetectionsView from './Components/Dashboard/SensorDetectionsView'
 import ScreenServerView from './Components/Dashboard/ScreenServerView';
 import ScreenConfigView from './Components/Dashboard/ScreenConfigView';
 import './Components/Dashboard/BodySection/body.css'
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: '/config',
     element:<div>  <ScreenConfigView />  </div>
+  },
+  {
+    path: '/detecciones',
+    element:<div>  <SensorDetectionsView />  </div>
   }
 ])
 

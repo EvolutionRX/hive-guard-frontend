@@ -7,13 +7,70 @@ import { ClipLoader } from 'react-spinners';
 
 const Activity = () => {
   const [alerts, setAlerts] = useState([]);
-  const serverIP = localStorage.getItem('serverIP');
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(true);
-  
+  const serverIP = localStorage.getItem('serverIP');
+
+  // Mock data for alerts
+  /*
+  const mockAlerts = [
+    {
+      sensorId: "esp32cam738785",
+      alertType: "HUM",
+      value: "70.20"
+    },
+    {
+      sensorId: "esp32cam738785",
+      alertType: "HUM",
+      value: "70.33"
+    },
+    {
+      sensorId: "esp32cam738785",
+      alertType: "HUM",
+      value: "70.52"
+    },
+    {
+      sensorId: "esp32cam721689",
+      alertType: "HUM",
+      value: "70.33"
+    },
+    {
+      sensorId: "esp32cam721689",
+      alertType: "HUM",
+      value: "70.52"
+    },
+    {
+      sensorId: "esp32cam721689",
+      alertType: "HUM",
+      value: "70.31"
+    },
+    {
+      sensorId: "esp32cam721689",
+      alertType: "HUM",
+      value: "70.88"
+    },
+    {
+      sensorId: "esp32cam738785",
+      alertType: "HUM",
+      value: "70.33"
+    },
+    {
+      sensorId: "esp32cam738785",
+      alertType: "HUM",
+      value: "70.33"
+    },
+    {
+      sensorId: "esp32cam738785",
+      alertType: "HUM",
+      value: "70.30"
+    }
+  ];
+ */
   useEffect(() => {
     const pollAlerts = async () => {
       try {
+        // Use mock data for testing
+        //const response = { data: mockAlerts };
         const response = await Axios.get(`${serverIP}/api/alerts`);
         if (response.data.length > 0) {
           setAlerts(response.data);
@@ -45,28 +102,29 @@ const Activity = () => {
       </div>
 
       <div className="secContainer grid">
-      {loading ? (
+        {loading ? (
           <div className="loaderContainer">
             <ClipLoader size={50} color="#007bff" />
           </div>
         ) : (
-      alerts.length > 0 && alerts.slice(0, 3).map((alert, index) => (
-          <div key={index} className="singleCustomer flex">
-            <img src={user} alt="Customer Image" />
-            <div className="customerDetails">
-              <span className="name">{alert.alertType === 'TEMP' ? 'Temperatura' : 'Humedad'}</span>
-              <small>
-                {alert.alertType === 'TEMP'
-                  ? `Subió la temperatura por encima de ${alert.value}°`
-                  : `Subió la humedad por encima de ${alert.value}%`}
-              </small>
+          alerts.length > 0 && alerts.slice(0, 3).map((alert, index) => (
+            <div key={index} className="singleCustomer flex">
+              <img src={user} alt="Customer Image" />
+              <div className="customerDetails">
+                <span className="sensorId">{alert.sensorId}</span>
+                <span className="name">{alert.alertType === 'TEMP' ? 'Temperatura' : 'Humedad'}</span>
+                <small>
+                  {alert.alertType === 'TEMP'
+                    ? `Disminuyó la temperatura por encima de ${alert.value}°`
+                    : `Aumentó la humedad por encima de ${alert.value}%`}
+                </small>
+              </div>
+              <div className="duration">
+                Hace un momento
+              </div>
             </div>
-            <div className="duration">
-              Hace un momento
-            </div>
-          </div>
-        ))
-      )}
+          ))
+        )}
       </div>
 
       {showModal && (
@@ -75,23 +133,24 @@ const Activity = () => {
             <button className="closeButton" onClick={closeModal}>×</button>
             <h2>Alertas</h2>
             <div className="secContainer grid">
-            {alerts.map((alert, index) => (
-              <div key={index} className="singleCustomer flex">
-                <img src={user} alt="Customer Image" />
-                <div className="customerDetails">
-                  <span className="name">{alert.alertType === 'TEMP' ? 'Temperatura' : 'Humedad'}</span>
-                  <small>
-                    {alert.alertType === 'TEMP'
-                      ? `Subió la temperatura por encima de ${alert.value}°`
-                      : `Subió la humedad por encima de ${alert.value}%`}
-                  </small>
+              {alerts.map((alert, index) => (
+                <div key={index} className="singleCustomer flex">
+                  <img src={user} alt="Customer Image" />
+                  <div className="customerDetails">
+                    <span className="sensorId">{alert.sensorId}</span>
+                    <span className="name">{alert.alertType === 'TEMP' ? 'Temperatura' : 'Humedad'}</span>
+                    <small>
+                      {alert.alertType === 'TEMP'
+                        ? `Disminuyó la temperatura por encima de ${alert.value}°`
+                        : `Aumentó la humedad por encima de ${alert.value}%`}
+                    </small>
+                  </div>
+                  <div className="duration">
+                    Hace un momento
+                  </div>
                 </div>
-                <div className="duration">
-                  Hace un momento
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
           </div>
         </div>
       )}

@@ -7,7 +7,7 @@
     --blackColor: hsl(0, 0%, 18%);
     --textColor: hsl(240, 1%, 48%);
     --bgColor: hsl(220, 10%, 94%);
-    --greyText: rgb(190, 190, 190);
+    --greyText: rgb(61, 61, 61);
     --inputColor: hsl(330, 12%, 97%);
     --itemCardColor: hsl(120, 5%, 88%);
     --itemCardHover: hsl(120, 27%, 87%);
@@ -128,4 +128,14 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
+}
+
+.hiveDetails {
+  margin-top: 20px;
+}
+
+.secContainer.grid2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  gap: 20px;
 }

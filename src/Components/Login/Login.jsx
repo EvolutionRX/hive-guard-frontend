@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './Login.css';
 import '../../App.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
@@ -74,7 +73,7 @@ const Login = () => {
                     <div className="footerDiv flex">
                         <span className="text">¿No tienes una cuenta?</span>
                         <Link to={'/register'}>
-                            <button className="btn">Registrarse</button>
+                            <button className="btn flex" >Registrarse</button>
                         </Link>
                     </div>
                 </div>
